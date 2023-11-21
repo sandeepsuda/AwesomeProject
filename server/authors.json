@@ -1,0 +1,13 @@
+[
+    {
+        "id": "auth_01",
+        "firstName": "jk",
+        "lastName": "Rolling",
+        "books": [
+            {
+                "id": "book_01",
+                "title": "Harry Potter"
+            }
+        ]
+    }
+]

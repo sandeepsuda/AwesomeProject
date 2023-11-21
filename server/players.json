@@ -1,0 +1,16 @@
+[
+    {
+        "position": "QB",
+        "team": "New England Patriots",
+        "jerseyNumber": 12,
+        "wonSuperBowl": true,
+        "name": "Tom Brady"
+    },
+    {
+        "position": "WR",
+        "team": "Pittsburg Steelers",
+        "jerseyNumber": 84,
+        "wonSuperBowl": false,
+        "name": "Antonio Brown"
+    }
+]

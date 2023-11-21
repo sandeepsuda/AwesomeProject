@@ -1,6 +1,6 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
-type Movie = {
+export type Movie = {
   id: string;
   title: string;
   releaseYear: string;
