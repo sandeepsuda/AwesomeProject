@@ -38,9 +38,9 @@ interface MovieProps {
 
 const MoviesList: FC<MovieProps> = ({movies, status}) => {
   // const {data} = useQuery(GET_PLAYERS);
-  const {data} = useQuery(GET_AUTHORS);
+  // const {data} = useQuery(GET_AUTHORS);
   // console.log(data);
-  console.log(data.authors[0].books);
+  // console.log(data.authors[0].books);
 
   return (
     <View>
