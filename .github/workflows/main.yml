@@ -1,0 +1,30 @@
+name: React Native CI/CD
+
+on:
+   push:
+    branches:
+       - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Lint
+      run: npx eslint
+
+    - name: Run Tests
+      run: npm test
+
+    - name: Build and Package
+      run: npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
