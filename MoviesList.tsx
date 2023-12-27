@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import {Movie} from './dataSlice';
 import withLoading from './withLoading';
 
-import {gql, useQuery} from '@apollo/client';
+// import {gql} from '@apollo/client';
 
 // const GET_PLAYERS = gql`
 //   query {
@@ -17,19 +17,19 @@ import {gql, useQuery} from '@apollo/client';
 //   }
 // `;
 
-const GET_AUTHORS = gql`
-  query {
-    authors {
-      id
-      firstName
-      lastName
-      books {
-        id
-        title
-      }
-    }
-  }
-`;
+// const GET_AUTHORS = gql`
+//   query {
+//     authors {
+//       id
+//       firstName
+//       lastName
+//       books {
+//         id
+//         title
+//       }
+//     }
+//   }
+// `;
 
 interface MovieProps {
   movies: Movie[];

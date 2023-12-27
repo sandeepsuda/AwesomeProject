@@ -10,7 +10,7 @@
     "build": "tsc",
     "jest": "jest --verbose",
     "test": "jest",
-    "prepAPK": "npx jetify && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle && cd ./android && ./gradlew app:assembleRelease"
+    "prepAPK": "npx jetify && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",

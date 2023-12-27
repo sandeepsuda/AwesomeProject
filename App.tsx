@@ -5,11 +5,20 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
-import { View, FlatList, Text, Linking } from 'react-native';
-import { NavigationContainer, createNavigationContainerRef, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
+import React, {useEffect} from 'react';
+import {View, FlatList, Text, Linking} from 'react-native';
+import {
+  NavigationContainer,
+  createNavigationContainerRef,
+} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+} from '@apollo/client';
 // import {Provider} from 'react-redux';
 // import store from './store';
 // import MoviesList from './MoviesList';
@@ -22,14 +31,14 @@ const client = new ApolloClient({
 });
 
 const GET_LOCATIONS = gql`
-query GetLocations {
-  locations {
-    id
-    name
-    description
-    photo
+  query GetLocations {
+    locations {
+      id
+      name
+      description
+      photo
+    }
   }
-}
 `;
 
 const Stack = createNativeStackNavigator();
@@ -37,38 +46,38 @@ const navigationRef = createNavigationContainerRef();
 
 const HomeScreen = () => {
   // const navigation = useNavigation();
-  const { loading, error, data } = useQuery(GET_LOCATIONS);
+  const {loading, data} = useQuery(GET_LOCATIONS);
   console.log(data);
 
   if (!loading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
+      <View style={{flex: 1, justifyContent: 'center'}}>
         <FlatList
           data={Array.from(Array(200).keys())}
           keyExtractor={(item, index) => String(index)}
-          renderItem={({ item, index }) => (
-            <View key={index} style={{ width: '100%', height: 40, justifyContent: 'center' }}>
-              <Text>  {item}</Text>
+          renderItem={({item, index}) => (
+            <View
+              key={index}
+              style={{width: '100%', height: 40, justifyContent: 'center'}}>
+              <Text> {item}</Text>
             </View>
           )}
         />
       </View>
     );
   }
-  return (<View></View >);
-
-}
+  return <View />;
+};
 
 const SettingsScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Settings Screen</Text>
     </View>
   );
-}
+};
 
 const App = () => {
-
   useEffect(() => {
     const getUrl = async () => {
       const initialUrl = await Linking.getInitialURL();
@@ -88,8 +97,8 @@ const App = () => {
     <ApolloProvider client={client}>
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator>
-          <Stack.Screen name='Home' component={HomeScreen} />
-          <Stack.Screen name='Settings' component={SettingsScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
