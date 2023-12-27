@@ -6,7 +6,7 @@
  */
 
 import React, {useEffect} from 'react';
-import {View, FlatList, Text, Linking} from 'react-native';
+import {StyleSheet, View, FlatList, Text, Linking} from 'react-native';
 import {
   NavigationContainer,
   createNavigationContainerRef,
@@ -24,14 +24,12 @@ const navigationRef = createNavigationContainerRef();
 
 const HomeScreen = () => {
   return (
-    <View testID="container" style={{flex: 1, justifyContent: 'center'}}>
+    <View testID="container" style={styles.container}>
       <FlatList
         data={Array.from(Array(200).keys())}
         keyExtractor={(item, index) => String(index)}
         renderItem={({item, index}) => (
-          <View
-            key={index}
-            style={{width: '100%', height: 40, justifyContent: 'center'}}>
+          <View key={index} style={styles.row}>
             <Text> {item}</Text>
           </View>
         )}
@@ -42,7 +40,7 @@ const HomeScreen = () => {
 
 const SettingsScreen = () => {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.container}>
       <Text>Settings Screen</Text>
     </View>
   );
@@ -80,5 +78,17 @@ const App = () => {
     // </ApolloProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  row: {
+    width: '100%',
+    height: 40,
+    justifyContent: 'center',
+  },
+});
 
 export default App;
