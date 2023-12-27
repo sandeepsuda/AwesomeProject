@@ -51,7 +51,7 @@ const HomeScreen = () => {
 
   if (!loading) {
     return (
-      <View style={{flex: 1, justifyContent: 'center'}}>
+      <View testID="container" style={{flex: 1, justifyContent: 'center'}}>
         <FlatList
           data={Array.from(Array(200).keys())}
           keyExtractor={(item, index) => String(index)}
@@ -66,7 +66,7 @@ const HomeScreen = () => {
       </View>
     );
   }
-  return <View />;
+  return <View testID="container" />;
 };
 
 const SettingsScreen = () => {

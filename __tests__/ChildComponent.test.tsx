@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
-import ChildComponent from './ChildComponent';
+import ChildComponent from '../ChildComponent';
 
 describe('Component', () => {
   it('renders the mocked child component correctly', () => {
