@@ -26,5 +26,17 @@ jobs:
     - name: Run Tests
       run: npm test
 
-    - name: Build and Package
-      run: npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
+    - name: Build iOS IPA
+      run: npx react-native run-ios --configuration Release
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: upload to app center iOS
+      uses: microsoft/appcenter-action@v1
+      with:
+        app_secret: ${{ secrets.APP_CENTER_IOS_SECRET }}
+        app_name: 'AwesomeProject'
+        file: ./ios/build/Build/Products/Release-iphoneos/AwesomeProject.app    
